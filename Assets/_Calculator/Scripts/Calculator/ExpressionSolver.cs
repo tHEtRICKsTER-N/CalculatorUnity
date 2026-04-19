@@ -72,8 +72,8 @@ public static class ExpressionSolver
 
             char symbol = _expression[_currentIndex];
 
-            // If the symbol is not * or /, then we are done with this part
-            if (symbol != '*' && symbol != '/')
+            // If the symbol is not *, /, or %, then we are done with this part
+            if (symbol != '*' && symbol != '/' && symbol != '%')
                 return answer;
 
             // Move after the operator
@@ -85,12 +85,19 @@ public static class ExpressionSolver
             {
                 answer *= nextNumber;
             }
-            else
+            else if (symbol == '/')
             {
                 if (nextNumber == 0)
                     throw new DivideByZeroException("Cannot divide by zero.");
 
                 answer /= nextNumber;
+            }
+            else
+            {
+                if (nextNumber == 0)
+                    throw new DivideByZeroException("Cannot modulo by zero.");
+
+                answer %= nextNumber;
             }
         }
     }

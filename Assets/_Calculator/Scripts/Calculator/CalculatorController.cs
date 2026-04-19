@@ -18,6 +18,7 @@ public class CalculatorController : MonoBehaviour
     [SerializeField] private Button _subtractButton;
     [SerializeField] private Button _multiplyButton;
     [SerializeField] private Button _divideButton;
+    [SerializeField] private Button _moduloButton;
     [SerializeField] private Button _decimalButton;
 
     [Header("Action Buttons")]
@@ -52,6 +53,7 @@ public class CalculatorController : MonoBehaviour
         _subtractButton.onClick.AddListener(() => AddOperator('-'));
         _multiplyButton.onClick.AddListener(() => AddOperator('*'));
         _divideButton.onClick.AddListener(() => AddOperator('/'));
+        _moduloButton.onClick.AddListener(() => AddOperator('%'));
 
         _decimalButton.onClick.AddListener(AddDecimal);
 
@@ -200,7 +202,7 @@ public class CalculatorController : MonoBehaviour
                 return true;
 
             // if we reach an operator, that means the current last number does not have a dot
-            if (letter == '+' || letter == '*' || letter == '/')
+            if (letter == '+' || letter == '*' || letter == '/' || letter == '%')
                 return false;
 
             // If we reach minus and it's not the first letter that means the current last number does not have a dot
@@ -221,5 +223,5 @@ public class CalculatorController : MonoBehaviour
         return value % 1 == 0 ? ((long)value).ToString() : value.ToString("G10");
     }
 
-    private bool IsOperator(char letter) => letter == '+' || letter == '-' || letter == '*' || letter == '/';
+    private bool IsOperator(char letter) => letter == '+' || letter == '-' || letter == '*' || letter == '/' || letter == '%';
 }

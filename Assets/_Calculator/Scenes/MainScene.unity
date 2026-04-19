@@ -3626,6 +3626,7 @@ MonoBehaviour:
   _subtractButton: {fileID: 939346500}
   _multiplyButton: {fileID: 683312419}
   _divideButton: {fileID: 1493826542}
+  _moduloButton: {fileID: 1429854483}
   _decimalButton: {fileID: 209189607}
   _equalsButton: {fileID: 1262108512}
   _clearEntryButton: {fileID: 655413274}
